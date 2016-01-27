@@ -13,7 +13,7 @@ keytool -keysize 2048 -genkey -alias somewebsite.org -keyalg RSA -keystore tomca
 ```
 #!java
 
-keytool -certreq -keyalg RSA -alias somewebsite.org -file opentestsystems.csr -keystore tomcat.keystore
+keytool -certreq -keyalg RSA -alias somewebsite.org -file somewebsite.csr -keystore tomcat.keystore
 ```
 
 ### Install the root certificate
