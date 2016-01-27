@@ -5,30 +5,15 @@
 ```
 #!java
 
-keytool -keysize 2048 -genkey -alias opentestsystems.org -keyalg RSA -keystore tomcat.keystore
+keytool -keysize 2048 -genkey -alias somewebsite.org -keyalg RSA -keystore tomcat.keystore
 ```
-
-
-US
-
-District of Columbia
-
-Washington
-
-American Institutes for Research
-
-Assessment
-
-*.ci.opentestsystem.org (this will be different for each CSR)
-
-astwebadmin@air.org
 
 ### Create a CSR
 
 ```
 #!java
 
-keytool -certreq -keyalg RSA -alias opentestsystems.org -file opentestsystems.csr -keystore tomcat.keystore
+keytool -certreq -keyalg RSA -alias somewebsite.org -file opentestsystems.csr -keystore tomcat.keystore
 ```
 
 ### Install the root certificate
@@ -53,7 +38,7 @@ keytool -import -alias intermed -keystore tomcat.keystore -trustcacerts -file gd
 ```
 #!java
 
-keytool -import -alias opentestsystems.org -keystore tomcat.keystore -trustcacerts -file /path/to/certificateFromVendor
+keytool -import -alias somewebsite.org -keystore tomcat.keystore -trustcacerts -file /path/to/certificateFromVendor
 ```
 
 **-----------------------------------------------**
