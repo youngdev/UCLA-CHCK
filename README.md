@@ -53,7 +53,7 @@ keytool -import -alias somewebsite.org -keystore tomcat.keystore -trustcacerts -
 ## Updating tomcat truststore files (.truststore.aws)
 * Trust stores contain the public certs for trusted servers. In the case of wildcards, all that's needed is the single cert.
     * Create a new trust store file with the new public cert (or import it into an existing one):
-`keytool -import -trustcacerts -alias opentestsystem.org -file /path/to/server.crt -keystore .truststore.aws
+`keytool -import -trustcacerts -alias somewebsite.org -file /path/to/server.crt -keystore .truststore.aws
 `
         * Remember to name it exactly `.truststore.aws`
         * Remember to make the file's ownership `tomcat.tomcat`
@@ -61,8 +61,8 @@ keytool -import -alias somewebsite.org -keystore tomcat.keystore -trustcacerts -
 
 ## Updating samlKeystore.jks
 * This contains a number of certificates and is used by Tomcat web servers exposing a UI. It is located in ~tomcat/resources/security/ folder.
-    * Remove the old alias from the store file by running the following command `keytool -delete -alias "*.opentestsystem.org (go daddy secure certification authority)" -keystore samlKeystore.jks -storepass yoursecretpasswd`
-    * Add the new alias to the store file by running the following command `keytool -import -trustcacerts -alias "*.opentestsystem.org (go daddy secure certification authority)" -file /path/to/server.crt -keystore samlKeystore.jks`
+    * Remove the old alias from the store file by running the following command `keytool -delete -alias "*.somewebsite.org (go daddy secure certification authority)" -keystore samlKeystore.jks -storepass yoursecretpasswd`
+    * Add the new alias to the store file by running the following command `keytool -import -trustcacerts -alias "*.somewebsite.org (go daddy secure certification authority)" -file /path/to/server.crt -keystore samlKeystore.jks`
     * Remember to name it exactly `samlKeystore.jks`
     * Remember to make the file's ownership `tomcat.tomcat`
     * Remove world read rights on that file.
